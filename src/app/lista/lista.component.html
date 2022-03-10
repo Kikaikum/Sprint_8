@@ -1,0 +1,10 @@
+
+
+<div class="row mt-1" *ngFor="let nave of this.servicio.naves" >
+    <div class="col-9 border border-white rounded" (click)="this.servicio.hola(nave.url);">
+        <h5>{{nave.name}}</h5>
+        <p>{{nave.model}}</p>        
+    </div>
+    
+</div>
+<button class="btn btn-danger" *ngIf="this.servicio.masNaves" (click)="this.servicio.getNaves()">Mas</button>

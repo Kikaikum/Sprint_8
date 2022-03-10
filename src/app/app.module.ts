@@ -6,16 +6,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ListaComponent } from './lista/lista.component';
+import { NaveComponent } from './nave/nave.component';
+import { NavesComponent } from './naves/naves.component';
 
 
 
 const appRoutes:Routes=[
-  {path:'',component:HomeComponent}
+  {path:'',component:HomeComponent},
+  {path:'starships',component:NavesComponent}
 ]
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    ListaComponent,
+    NaveComponent,
+    NavesComponent
   ],
   imports: [
     BrowserModule,
