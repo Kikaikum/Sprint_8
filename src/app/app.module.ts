@@ -8,13 +8,16 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListaComponent } from './lista/lista.component';
 import { NaveComponent } from './nave/nave.component';
-import { NavesComponent } from './naves/naves.component';
+
+import { MenuComponent } from './menu/menu.component';
+import { LoginComponent } from './login/login.component';
 
 
 
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
-  {path:'starships',component:NavesComponent}
+  {path:'starships',component:ListaComponent},
+  {path:'nave',component:NaveComponent}
 ]
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ const appRoutes:Routes=[
     HomeComponent,
     ListaComponent,
     NaveComponent,
-    NavesComponent
+    
+    MenuComponent,
+         LoginComponent
   ],
   imports: [
     BrowserModule,
