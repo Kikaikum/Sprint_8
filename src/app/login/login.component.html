@@ -1,1 +1,20 @@
-<p>login works!</p>
+
+<h3>LOGIN</h3>
+<div>
+  <form novalidate (ngSubmit)="this.login.getlogin(registro.value)" [formGroup]="registro" >
+  
+      <label class="form-label">Usuario</label>
+      <input class="form-control" formControlName="user" type="text">
+      <div *ngIf="registro.get('nombre')?.hasError('required') && registro.get('nombre')?.touched">
+          Falta el usuario
+      </div>    
+      <label class="form-label">Password</label>
+      <input class="form-control" formControlName="password" type="password">
+      <div *ngIf="registro.get('cliente')?.hasError('required') && registro.get('cliente')?.touched">
+          Falta el password
+      </div> 
+      <br>
+      <button class='btn btn-dark mt-2 btn-sm' type="submit" [disabled]="registro.invalid">Login</button>
+      
+  </form>
+</div>

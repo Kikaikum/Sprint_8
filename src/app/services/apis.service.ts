@@ -13,7 +13,7 @@ import { nave } from "../interfaces/naveInterface"
 export class ApisService {
 
   naves:any;   
-  masNaves=true;
+  masNaves=false;
   pagina=1;
   lista=true;
   limite:number | undefined;
@@ -34,6 +34,7 @@ export class ApisService {
         this.naves=data.results;
         this.pagina+=1;
         this.limite=data.count
+        this.masNaves=true;
         if(!this.limite){
           this.limite=30;
         }
@@ -62,8 +63,11 @@ export class ApisService {
       let id=this.infoNave.url.replace("https://swapi.dev/api/starships/","");
       this.id=id.replace("/","");
       
+      
     })
   } 
-
+  entrar(){    
+    this.router.navigate(['starships'])   
+  } 
   
 }
