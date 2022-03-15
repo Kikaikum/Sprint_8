@@ -1,0 +1,11 @@
+.bg-dark {
+    --bs-bg-opacity: 0;
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6; 
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    border: 1px solid #dee2e6;
+}

@@ -1,3 +1,28 @@
-<p>nave works!</p>
-<img src="https://starwars-visualguide.com/assets/img/starships/{{nave}}.jpg" alt="">
-{{this.servicio.infoNave}}
+<div class="row text-center mt-4">
+    <div class="col-12">
+        <img class="img-fluid" src="https://starwars-visualguide.com/assets/img/starships/{{this.servicio.id}}.jpg" alt="">
+    </div>    
+</div>
+<div class="row justify-content-center">
+    <div class="col-10">
+        <h1>{{this.servicio.infoNave.name}}</h1>
+        <div class="row mt-4">
+            <p class="col-5">Model: {{this.servicio.infoNave.model}}</p>
+            <p class="col-5">Cost in credits: {{this.servicio.infoNave.cost_in_credits}}</p>
+        </div>
+        <div class="row">
+            <p class="col-5">Atmosdpheric speed: {{this.servicio.infoNave.max_atmosphering_speed}}</p>
+            <p class="col-5">Passengers: {{this.servicio.infoNave.passengers}}</p>
+        </div>
+        <div class="row">
+            <p class="col-5">Manufacturer: {{this.servicio.infoNave.manufacturer}}</p>
+            <p class="col-5">Crew: {{this.servicio.infoNave.crew}}</p>
+        </div>
+        <p>Length: {{this.servicio.infoNave.length}}m</p>
+    </div>
+    
+</div>
+
+
+
+

@@ -7,9 +7,9 @@ import { ApisService } from '../services/apis.service';
   styleUrls: ['./nave.component.css']
 })
 export class NaveComponent implements OnInit {
-
+  
   constructor(public servicio:ApisService) { }
-  nave=12;
+  
   ngOnInit(): void {
   }
 

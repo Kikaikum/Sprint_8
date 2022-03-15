@@ -1,0 +1,13 @@
+.lista{
+    background-color:  rgb(33 37 41);
+    border-radius: 10px;
+    
+}
+.titulo{
+    margin-top: 0.5rem;
+}
+.modelo{
+    margin-bottom: 0.5rem;
+}.item:hover{
+    background-color: rgb(16 17 18);
+}

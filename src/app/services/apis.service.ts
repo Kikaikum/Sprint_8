@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 import { naus } from "../interfaces/interface"
-
+import { nave } from "../interfaces/naveInterface"
 
 
 @Injectable({
@@ -14,22 +13,28 @@ import { naus } from "../interfaces/interface"
 export class ApisService {
 
   naves:any;   
-  masNaves=true;
+  masNaves=false;
   pagina=1;
   lista=true;
   limite:number | undefined;
   API_URL:string="https://swapi.dev/api/starships/?page=";
   url='t';
+  id=0;
   infoNave:any;
+  
 
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+    ) { }
 
   start(){
     this.http.get(this.API_URL+this.pagina).subscribe((data: naus) => {        
         this.naves=data.results;
         this.pagina+=1;
         this.limite=data.count
+        this.masNaves=true;
         if(!this.limite){
           this.limite=30;
         }
@@ -51,13 +56,18 @@ export class ApisService {
         }
       });
   }
-  hola(url: any){    
-    this.lista=false;    
-    this.http.get(url).subscribe(data=>{
-      this.infoNave=data;
-      console.log(data)
+  nave(url: any){    
+    this.router.navigate(['nave'])   
+    this.http.get(url).subscribe((data:nave)=>{
+      this.infoNave=data;      
+      let id=this.infoNave.url.replace("https://swapi.dev/api/starships/","");
+      this.id=id.replace("/","");
+      
+      
     })
   } 
-
+  entrar(){    
+    this.router.navigate(['starships'])   
+  } 
   
 }
