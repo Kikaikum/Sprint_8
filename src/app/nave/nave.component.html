@@ -1,3 +1,14 @@
+
+
+<div class="overlay"  *ngIf="!this.servicio.load">    
+    <div class="spinner-border text-warning  spinner" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+
+
+
 <div class="row text-center mt-4">
     <div class="col-12">
         <img class="img-fluid" src="https://starwars-visualguide.com/assets/img/starships/{{this.servicio.id}}.jpg" alt="">

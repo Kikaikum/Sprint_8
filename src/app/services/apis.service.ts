@@ -21,6 +21,8 @@ export class ApisService {
   url='t';
   id=0;
   infoNave:any;
+  load=false;
+  inicial=false;
   
 
 
@@ -35,6 +37,7 @@ export class ApisService {
         this.pagina+=1;
         this.limite=data.count
         this.masNaves=true;
+        this.load=true;
         if(!this.limite){
           this.limite=30;
         }
@@ -42,12 +45,14 @@ export class ApisService {
   }
 
   getNaves(){
+    this.load=false;
     this.masNaves=false;
     this.http.get(this.API_URL+this.pagina).subscribe((data: naus) => {   
         this.naves=this.naves.concat(data.results);
         console.log(data.count);
         this.pagina+=1;
         console.log(this.naves);
+        this.load=true;
         if(this.naves.length<31){
           this.masNaves=true;
         }
@@ -56,12 +61,16 @@ export class ApisService {
         }
       });
   }
-  nave(url: any){    
-    this.router.navigate(['nave'])   
+  nave(url: any){
+    this.inicial=true;    
+    this.router.navigate(['nave']) 
+    this.load=false;
+      
     this.http.get(url).subscribe((data:nave)=>{
       this.infoNave=data;      
       let id=this.infoNave.url.replace("https://swapi.dev/api/starships/","");
-      this.id=id.replace("/","");
+      this.id=id.replace("/","");      
+      this.load=true;
       
       
     })

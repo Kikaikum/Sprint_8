@@ -26,6 +26,11 @@ export class LoginService {
       this.loginstatusSubject.next(true);      
       this.ruta.navigate(['']);      
     }
+    else{
+      alert("USUARIO Y CONTRASEÑA INCORRECTOS")
+      
+
+    }
   }
   gotoRegister(){
     this.ruta.navigate(['register']);

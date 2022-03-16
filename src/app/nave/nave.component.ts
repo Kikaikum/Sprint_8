@@ -11,6 +11,10 @@ export class NaveComponent implements OnInit {
   constructor(public servicio:ApisService) { }
   
   ngOnInit(): void {
+    if(!this.servicio.inicial){
+      this.servicio.nave("https://swapi.dev/api/starships/12");
+    }
+    
   }
 
 
