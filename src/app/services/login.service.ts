@@ -13,11 +13,25 @@ export class LoginService {
   loginstatusSubject = new Subject<boolean>();
   loginStatus$=this.loginstatusSubject.asObservable();
   
-  getregistro(data:any){    
-    localStorage.setItem(data.user,data.password);    
-    localStorage.setItem('logged','true');
-    this.loginstatusSubject.next(true);
-    this.ruta.navigate(['']);
+  getregistro(data:any){
+    var existe=false;
+    for(var i=0, len=localStorage.length; i<len; i++) {
+      var key = localStorage.key(i);      
+      if(key == data.user){
+        existe=true;
+      }
+    }
+    if(existe){
+      alert("YA EXISTE ESTE USUARIO")
+    }
+    else{
+      localStorage.setItem(data.user,data.password);    
+      localStorage.setItem('logged','true');
+      this.loginstatusSubject.next(true);
+      this.ruta.navigate(['']);
+
+    }
+    
   }
   getlogin(data:any){
     let dato=localStorage.getItem(data.user);    
@@ -28,6 +42,7 @@ export class LoginService {
     }
     else{
       alert("USUARIO Y CONTRASEÑA INCORRECTOS")
+      console.log(localStorage.key(1))
       
 
     }

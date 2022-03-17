@@ -11,7 +11,8 @@ import { LoginService } from '../services/login.service';
 export class RegisterComponent implements OnInit {
   registro = new FormGroup({
     user:new FormControl('',[Validators.required, Validators.minLength(2)]),
-    password:new FormControl('',[Validators.required, Validators.minLength(2)])
+    password:new FormControl('',[Validators.required, Validators.minLength(2)]),
+    email:new FormControl('',[Validators.required, Validators.minLength(2)])
   })
   constructor(public login:LoginService) { }
 

@@ -1,4 +1,11 @@
+@font-face {
+    font-family: "jedi";
+    src: local("jedi"), url(./assets/jedi.ttf) format("truetype");
+}
+
+
 body{
     background-color: black;
     color: azure;
+    font-family: "jedi", Arial, Helvetica, sans-serif;
 }
