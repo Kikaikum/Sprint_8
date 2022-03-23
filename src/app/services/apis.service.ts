@@ -23,6 +23,7 @@ export class ApisService {
   infoNave:any;
   load=false;
   inicial=false;
+  finish=false;
   
 
 
@@ -45,7 +46,8 @@ export class ApisService {
   }
 
   getNaves(){
-    this.load=false;
+    if (!this.finish){
+      this.load=false;
     this.masNaves=false;
     this.http.get(this.API_URL+this.pagina).subscribe((data: naus) => {   
         this.naves=this.naves.concat(data.results);
@@ -58,8 +60,11 @@ export class ApisService {
         }
         else{
           this.masNaves=false;
+          this.finish=true;
         }
       });
+    }
+    
   }
   nave(url: any){
     this.inicial=true;    
